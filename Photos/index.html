@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="The personal website and blog of Lance R. Vick, Software Engineer at Tawlk LLC.">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds/rss.xml">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/default.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <title> - Lance R. Vick</title>
+  </head>
+  <body>
+    <header>
+    <h1>Lance R. Vick</h1>
+    <nav>
+    
+      <a href=""></a>
+    
+      <a href=""></a>
+    
+      <a href=""></a>
+    
+      <a href=""></a>
+    
+    </nav>
+    </header>
+    
+  <script src="https://raw.github.com/gist/1215580/4ef54ac9a8366cd35d0deddd910050b4ea4a3e14/jQuery.EmbedPicasaGallery.js" type="text/javascript"></script>
+<script src="https://raw.github.com/kayluhb/slimbox/master/js/slimbox2.js" stype="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function (){
+
+var $info = $('#info');
+
+function showInfo(info) {
+        $info.html(info.title + " (" + info.photoCount + " photos) " + info.description).fadeIn('slow');
+    }
+
+function hideInfo() {
+        $info.hide().empty();
+    }
+
+jQuery("#gallery").EmbedPicasaGallery('109278148620470841006', {
+        show_more: 500,
+        loading_animation: '/static/img/loading.gif',
+        album_title_tag: '<h3/>',
+        album_hover: [showInfo,hideInfo],
+        album_toggle: [showInfo,hideInfo]
+    });
+  });
+</script>
+
+<div id="gallery"></div>
+<div id="info"></div>
+
+    
+    <footer>
+    Powered by <a href="http://github.com/lrvick/rant">rant</a>
+    </footer>
+  </body>
+</html>

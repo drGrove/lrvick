@@ -1,0 +1,9 @@
+[submodule "js/jquery-picasagallery"]
+	path = js/jquery-picasagallery
+	url = git://github.com/lrvick/jquery-picasagallery.git
+[submodule "js/jquery-githubindex"]
+	path = js/jquery-githubindex
+	url = git://github.com/lrvick/jquery-githubindex.git
+[submodule "js/CuteTime"]
+	path = js/CuteTime
+	url = git://github.com/theproductguy/CuteTime.git

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="The personal website and blog of Lance R. Vick, Software Engineer at Tawlk LLC.">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds/rss.xml">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/default.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <title> - Lance R. Vick</title>
+  </head>
+  <body>
+    <header>
+    <h1>Lance R. Vick</h1>
+    <nav>
+    
+      <a href="/blog/">Blog</a>
+    
+      <a href="/code/">Code</a>
+    
+      <a href="/photos/">Photos</a>
+    
+      <a href="/resume/">Resume</a>
+    
+    </nav>
+    </header>
+    
+  <article>
+  <h2>Making Users Think Firefox Is IE6</h2>
+    <p>&lt;&lt;<firefox-ie6-about:class=right>&gt;&gt;
+I have had customers... that the mere word "change" scares into tears. Some people just can not wrap their heads around concepts like Favorites being the same thing as Bookmarks. The solution? Hand them Firefox3, in a way that they are not even aware you did. Everyone wins.</p>
+<p>To any techs reading this that may already be writing us off as dirty sinners... hear us out.</p>
+<p>Ever have those situations where you install a peice of software for someone for their own protection... and they uninstall it and go back to they way they were used to the second you turn your back... then everything ends up broken and it is suddenly your fault?... Yeah... I have too.</p>
+<p>This is a solution for those people. Make Firefox 3 Look and feel exactly like IE6. (Because to people married to IE6, even the appearance of IE7 often scares them).</p>
+<p>This is also a solution for people who have other people over their heads that for whatever reason dictate nothing but IE6 is to be used on a network that you need to deal with... and you know better.</p>
+<p>My recipie is as follows:</p>
+<h1>Start with a totally stock Firefox 3 Installation and be sure to import from Internet Explorer so you get the default bookmarks toolbar and what-not.</h1>
+<h1>Install the NoUn Buttons extension</h1>
+<h1>Install my Modified FirefoXP extension (My version includes a couple of cosmetic fixes, integrates the IE6 icon, and adds an "address" button for the toolbar)</h1>
+<h1>Install the Old Location Bar extension</h1>
+<h1>Install the FireSomething extension</h1>
+<h1>Install the PlainOldFavorites extension</h1>
+<h1>Install the Menu Editor extension</h1>
+<h1>Install the Yahoo Toolbar extension (Optional... but let's face it, virtually all IE6 users expect it to be there since it got installed by some random peice of software they used ages ago)</h1>
+<h1>Install the Google Toolbar extension (Also Optional... but we have seen plenty of hardcore IE6 users who have both!)</h1>
+<h1>Go to Tools &gt; Add-Ons then hit "Options" on Menu Editor. Select "Bookmarks" under "Edit Menu" then uncheck "Visible". Hit OK.</h1>
+<h1>Go to Tools &gt; Add-Ons then hit "Options" on Firesomething. Delete everything in all 3 columns. Add "Microsoft" "Internet" and "Explorer" to those respective three columns. Hit Apply.</h1>
+<h1>Right click on the toolbar and select "Customize" then drag and drop everything around to match our screenshot.</h1>
+<h1>Remove all Internet Explorer icons on target system and put Firefox icons named "Internet Explorer" in their place.</h1>
+<h1>For each icon do Right click &gt; Properties &gt; Shortcut &gt; Change Icon. Under "Look for icons in this file:" put C:Program FilesInternet Exploreriexplore.exe then select that evil blue E.</h1>
+<h1>Repent and be ashamed of yourself.</h1>
+<p>My result came out like this:
+&lt;&lt;<firefox-after-ie6-facelift>&gt;&gt;</p>
+    </article>
+    <ul class="tags">
+      
+      <li>tech</li>
+      
+      <li>firefox</li>
+      
+      <li>ie6</li>
+      
+    </ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'lrvick';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+    
+    <footer>
+    Powered by <a href="http://github.com/lrvick/rant">rant</a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="The personal website and blog of Lance R. Vick, Software Engineer at Tawlk LLC.">
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="http://gravatar.com/avatar/ce3b7bc97b5adbdc2cae4d231e4ebad8?s=16x16">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds/rss.xml">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <link rel="openid.server" href="http://www.myopenid.com/server">
+    <link rel="openid.delegate" href="http://lrvick.myopenid.com">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script src="/js/CuteTime/js/jquery.cuteTime.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <title>My last laugh at whitepages - Blog - Lance R. Vick</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+      <h1>Lance R. Vick</h1>
+      <nav>
+      
+      <a href="/blog/" class="current">Blog</a>
+      
+      <a href="/resume/" >Resume</a>
+      
+      <a href="/photos/" >Photos</a>
+      
+      <a href="/code/" >Code</a>
+      
+      </nav>
+      </header>
+      <article>
+        
+  <article>
+  <img class="right header" src="/img/whitepages.jpg"/>
+    <h2>My Last Laugh at WhitePages</h2>
+    <p class="entry-timeauthor">
+      Posted on:
+      <time>
+        <span>29</span>
+        <span>Apr</span>
+        <span>2012</span>
+      </time>
+    </p>
+    <p>o I long story short I recently reached a legal agreement with WhitePages.com where they agreed to not sue me over some data I collected from their servers. I however never agreed to not blog about the experience nor did I ever agree to not share my source code with the world as well.</p>
+<p>Woops!</p>
+<p>So it all started with the following email from WhitePages:</p>
+<p><hr/>
+Mr. Vick,</p>
+<p>Please find attached a letter that addresses your activities with respect to web properties owned by WhitePages, Inc.</p>
+<p>Please contact me at your earliest convenience.</p>
+<p>Sincerely,</p>
+<p>Nathan D. Webb
+206-356-6949
+General Counsel
+WhitePages, Inc.
+<hr/></p>
+<p>To which I promptly replied with:</p>
+<p><hr/>
+Hello Nathan,</p>
+<p>Yes, I respect this request and I have ceased all scripting activities
+with whitepages over 2 weeks ago and I will not deny them. In fact I
+stand impressed your team did the research needed to identify me though
+I did not make any particular attempts to hide my activities. The
+heavy traffic was indeed coming from me, and I give praise where praise
+is due.</p>
+<p>As I just stated however, all scripting activities ceased over 2 weeks
+ago. I wrote a very simple bash script in an attempt to build a
+database of carrier/cell phone mapping in efforts to provide a free
+open-source texting application for mobile phones. Over a couple weeks
+ago I found out that the information I need is publicly available from
+another source that I have chosen to use instead.</p>
+<p>If you will notice however I used no proxies and made no attempts at
+cloaking my scraping of the site and I hope that is proof enough my
+intents were anything but malicious. Using random sleeps, random user
+agents, and TOR proxies would of easily made my scraping undetectable
+had a covert malicious effort been my intent. I just wanted to save
+myself the trouble of copying and pasting a 170 million number blocks
+by hand. As you must understand it is quite troublesome to do manually.</p>
+<p>I sign all my outgoing mail with a virtually impossible to replicate
+4096 bit RSA GPG signature so by all means count this as an official
+statement from me if needed.</p>
+<p>Your work here is done. Your client will have no more trouble from me :-)</p>
+<p>--
+Lance R. Vick
+<hr/></p>
+<p>I was then called by Nathan later that afternoon where he informs me that whitepages carrier lookup services acquires its results from a third party, and that they pay for every search. He went on to state that the fact I had done far MORE searches than most people, that I should have to pay them to the order of $10,000 for searching so many of their public records. (Granted it was about 60 million records I pulled, but what is that between friends?)</p>
+<p>I made it clear this was not going to happen, and we went back and forth over email for the next several weeks. They eventually agreed to back off legally via a document where both parties agreed not to pursue... under one primary condition: I had to reveal the source code I used to do the scraping on their site.</p>
+<p>I did so, and all was kosher. I however do not appreciate being bullied by legal teams, and thought others out there might enjoy this simple bit of bash source code as well, which as of the writing of this article, should still work.</p>
+<script src="https://gist.github.com/1574264.js"> </script>
+
+<p>You would think if they wanted to limit the number of searches they would put in a basic rate limiter in place like pretty much every other search tool. It would only be a few lines of code. Oh well.</p>
+<p>I am never legally allowed to run this or any similar code again, but if anyone else wants to play with it... have fun :-)</p>
+  </article>
+    <h2 class="comments">Comments</h2>
+    <article id="disqus_thread">
+    </article>
+    <script type="text/javascript">
+      var disqus_shortname = 'lrvick';
+      var disqus_identifier = 'my_last_laugh_at_whitepages';
+      var disqus_title = 'My Last Laugh at WhitePages';
+      var disqus_url = 'http://new.lrvick.net/blog/my_last_laugh_at_whitepages/';
+      (function() {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+
+      </article>
+      <aside>
+  <div class="contact vcard">
+    <img src="http://gravatar.com/avatar/ce3b7bc97b5adbdc2cae4d231e4ebad8?s=200x200" alt="photo of Lance" class="photo">
+    <a class="url uid fn n noprint" href="http://lrvick.net">
+      <span class="given-name">Lance</span> 
+      <abbr class="additional-name" title="Reagan">R.</abbr> 
+      <span class="family-name">Vick</span>
+    </a>
+    <span class="org"><a class="url" href="http://tawlk.com">Tawlk (Loopa LLC)</a></span>
+    <span class="title">CTO & Lead Engineer</span>
+    <a class="email" href="mailto:lance@lrvick.net">lance@lrvick.net</a>
+    <div class="adr">
+      <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=2264+Gator+Dr.+apt+%23359+Orlando,++FL&amp;sll=28.573566,-81.312496&amp;sspn=0.006577,0.011362&amp;g=2264+Gator+Dr.+Orlando,+%23359+FL&amp;ie=UTF8&amp;hq=&amp;hnear=2264+Gator+Dr+%23359,+Orlando,+Orange,+Florida+32807&amp;ll=28.573601,-81.312481&amp;spn=0.000822,0.00142&amp;t=h&amp;z=20&amp;iwloc=A">
+        <span class="street-address">2264 Gator Dr #359</span>
+        <span class="locality">Orlando</span>
+        <span class="region">FL</span>
+        <span class="postal-code">32807</span>
+        <span class="country-name">USA</span>
+      </a>
+    </div>
+    <div class="tel">
+      <span class="type">Cell</span>
+      <a class="value" href="callto:14072837596">+1.407.283.7596</a>
+    </div>
+    <hr/>
+    <a rel="me" class="url" href="http://plus.google.com/u/0/109278148620470841006">
+      <img src="/img/googleplus.png" title="Google Plus" alt="Google Plus">
+    </a>
+    <a rel="me" class="url" href="http://www.linkedin.com/in/lrvick">
+      <img src="/img/linkedin.png" title="LinkedIn" alt="LinkedIn">
+    </a>
+    <a rel="me" class="url" href="http://github.com/lrvick">
+      <img src="/img/github.png" title="GitHub" alt="Github">
+    </a>
+    <a rel="me" class="url" href="http://www.facebook.com/people/Lance-Reagan-Vick/600627717">
+      <img src="/img/facebook.png" title="Facebook" alt="Facebook">
+    </a>
+    <a rel="me" class="url" href="http://twitter.com/lrvick">
+      <img src="/img/twitter.png" title="twitter" alt="Twitter">
+    </a>
+    <a rel="me" class="url" href="http://www.last.fm/user/lrvick">
+      <img src="/img/lastfm.png" title="Last.fm" alt="Last.fm">
+    </a>
+    <a rel="me" class="url" href="http://www.youtube.com/lrvick">
+      <img src="/img/youtube.png" title="YouTube" alt="YouTube">
+    </a>
+  </div>
+  <h3 class="odd">Location</h3>
+  <div class="latitude">
+    <div class="wrapper">
+      <iframe src="http://www.google.com/latitude/apps/badge/api?user=9215320111826670805&amp;type=iframe&amp;maptype=roadmap&amp;z=12" width="178px" height="219px"></iframe>
+    </div>
+  </div>
+  <h3 class="even">Github</h3>
+  <div class="github">
+  </div>
+  <h3 class="odd">Twitter</h3>
+  <div class="twitter">
+  </div>
+  <h3 class="even">Lastfm</h3>
+  <div class="lastfm">
+  </div>
+  <h3 class="odd">Youtube</h3>
+  <div class="youtube">
+  </div>
+</aside>
+      <footer>
+      Site generated by <a href="http://github.com/lrvick/rant">rant</a> | All content and code is <a href="http://en.wikipedia.org/wiki/Public_domain">Public Domain</a> unless otherwise specified. Take whatever you like.
+      </footer>
+    </div>
+  </body>
+</html>
