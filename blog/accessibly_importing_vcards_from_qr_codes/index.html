@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="The personal website and blog of Lance R. Vick, Software Engineer at Tawlk LLC.">
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="http://gravatar.com/avatar/ce3b7bc97b5adbdc2cae4d231e4ebad8?s=16x16">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds/rss.xml">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <link rel="openid.server" href="http://www.myopenid.com/server">
+    <link rel="openid.delegate" href="http://lrvick.myopenid.com">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script src="/js/CuteTime/js/jquery.cuteTime.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <title>Accessibly importing vcards from qr codes - Blog - Lance R. Vick</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+      <h1>Lance R. Vick</h1>
+      <nav>
+      
+      <a href="/blog/" class="current">Blog</a>
+      
+      <a href="/resume/" >Resume</a>
+      
+      <a href="/photos/" >Photos</a>
+      
+      <a href="/code/" >Code</a>
+      
+      </nav>
+      </header>
+      <article>
+        
+  <article>
+  <img class="right header" src="/img/tawlkcards.jpg"/>
+    <h2>Accessibly Importing vCards From QR Codes</h2>
+    <p class="entry-timeauthor">
+      Posted on:
+      <time>
+        <span>24</span>
+        <span>Feb</span>
+        <span>2012</span>
+      </time>
+    </p>
+    <p>QR codes are popping up just about everywhere these days. Menus, bumper
+stickers, bill boards, clothing, etc.</p>
+<p>It makes perfect sense. I mean how often do you see a URL and actually go
+through the trouble of typing it all in by hand, especially if it is long? I
+don't. When I see a QR code however it is just a simple matter of snapping a
+picture and it is now open in my phone browser.</p>
+<p>Because of this kind of utility, one place QR codes are starting to pop up
+more frequently, is business cards. People often put a link to their website
+or company website in a code and put it on the card. This usually works out
+great.</p>
+<p>There is another widely desired use for QR codes here however: Having them
+import a contact directly into the address book of a phone.</p>
+<p>This <em>should</em> be obvious, standard, and easy like QR codes themselves. Sadly,
+it's not.</p>
+<p>Since you can embed any type of textual information into a QR code, many people
+just directly encode the text of a meCard or vCard.</p>
+<p>This seems rather obvious and <em>should</em> just be that easy, but in practice you
+run into some problems.</p>
+<p>First lets take a look at my fairly complete vCard:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre>BEGIN:VCARD
+N;CHARSET=utf-8:Vick;Lance;;;
+FN;CHARSET=utf-8:Lance Vick
+ORG;CHARSET=utf-8:Tawlk
+TITLE;CHARSET=utf-8:Founder &amp; Lead Engineer
+TEL;WORK:4072837596
+EMAIL;INTERNET;WORK;CHARSET=utf-8:lance@tawlk.com
+ADR;WORK;CHARSET=utf-8:;;4545 36th St.;Orlando;FL;32811;United States
+URL;WORK;CHARSET=utf-8:http://tawlk.com
+VERSION:2.1
+END:VCARD
+</pre></div>
+</td></tr></table>
+
+<p>There are two main ways of getting this imported into a phone via QR code.</p>
+<h2>Method 1: Encode It directly</h2>
+<p>You can easily just dump the full text of a vCard into any QR code generation
+service like <a href="http://qrcode.kaywa.com/">Kaywa</a>.</p>
+<p>Encoding the vCard text directly works fine, but results in the dense QR Code
+seen on the left.</p>
+<img class="left" src="/img/hugeqr.png">
+
+<p>Now on looking at this an immediate problem surfaces. This is a
+huge QR code. If you scan it with your phone right now, it will probably work
+fine. In practice however you would need to shrink it down to fit on a
+business card, roll it through a printer that will render it in less than
+perfect quality, then try to snap a clear picture of it with your average
+smart phone camera which may or may not have auto-focus. This will sometimes
+result in an error such as "No QR Code Found", because at that point your QR
+Decoding application only had a black and white smudge to work with.</p>
+<p>If you are getting high resolution cards professionally printed, or have a
+good quality laser printer you might get away with using a full vCard, however
+be sure to test a lot of phones if you try to make sure their cameras can pick
+it up.</p>
+<p>The only way I could get this method to work well on an average printer, was
+to include only the bare essentials in the vCard. Name, phone, email. Anything
+more than that and the QR tends to end up too large.</p>
+<p>This brings us to the reality, that embedding anything much longer than a URL
+or a very small vCards is probably going to result in a QR code too dense to
+be read clearly by most smart phones, if printed with a lower-end printer, or
+or from any distance.</p>
+<p>At this point I thought to myself "Ok, so I will just put the vCard file on my
+server and link to it".</p>
+<p>This brings us to the next method.</p>
+<h2>Method 2: Put it on a server and link to it</h2>
+<p>In a perfect world this should work except for what I would consider to be a
+bug in android phones... they simply download the file and ignore the fact
+that it is a vCard that should be handled by the Contacts app.</p>
+<p>Details on this issue can be found <a href="http://code.google.com/p/android/issues/detail?id=9215&amp;q=vcard&amp;colspec=ID%20Type%20Status%20Owner%20Summary%20Stars">here</a></p>
+<p>After much toying around I found that if you serve the files with just the
+right headers in your web server, you can bypass this issue and Android will see
+the vCard as a vCard and let you import it.</p>
+<p>In order to do this you will need to configure your web server to serve VCF
+files with some special headers.</p>
+<p>Whenever a target vCard file is accessed it must contain the following headers
+for Android to treat is as an importable vCard file:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">Content</span><span class="o">-</span><span class="n">Disposition:</span> <span class="n">attachment</span><span class="p">;</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type:</span> <span class="n">text</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">vcard</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>For nginx the vhost configuration to inject the needed headers will look
+something like this:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">server</span> <span class="p">{</span>
+    <span class="nb">listen</span> <span class="mf">127.0.0.1</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+    <span class="n">server_name</span> <span class="n">vcf</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">;</span>
+    <span class="n">location</span> <span class="o">/</span> <span class="p">{</span>
+            <span class="n">root</span> <span class="sr">/home/</span><span class="n">user</span><span class="sr">/vcf/</span><span class="p">;</span>
+            <span class="n">add_header</span> <span class="n">content</span><span class="o">-</span><span class="n">disposition</span> <span class="s">&#39;attachment;&#39;</span><span class="p">;</span>
+            <span class="n">add_header</span> <span class="n">content</span><span class="o">-</span><span class="n">type</span> <span class="s">&#39;text/x-vcard; charset=utf-8;&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Once you have a URL serving up a vCard with the correct headers, you can then
+run it through a URL shortening service, and many will even give you tracking
+to let you know how many times people use it.</p>
+<p>My preferred way is to put the link into http://goo.gl which gives me a short
+URL, a tracking URL, and a QR code all in one go which is fairly straight
+forward and does not require any sign-up or API keys.</p>
+<p>With your QR code that now links to a vCard served with the correct headers all
+in place, you are set for Android, and Blackberry with virtually every
+application I have tested.</p>
+<p>Now that leaves iOS devices. Most barcode scanning applications will do the
+right thing and open the vCard in the Mobile Safari browser. The problem is
+Mobile Safari has no built in extensions for dealing with files which means
+that downloaded files like vCards will just sit there. You will be unable to
+import them or do anything with them.</p>
+<p>There is no solution for this, short of encouraging people to install an
+application to work around Mobile Safari's inability to deal with files.</p>
+<p>So far these are the only applications I am aware of that will allow downloaded
+vCards to import on iOS:</p>
+<ul>
+<li><a href="http://itunes.apple.com/us/app/qrafter-pro-qr-code-reader/id468610525?mt=8">Qrafter Pro</a></li>
+<li><a href="http://itunes.apple.com/us/app/tap-forms-database/id291405311?mt=8">TapForms</a></li>
+<li><a href="http://itunes.apple.com/app/vcard-getter/id454057908">vCard Getter</a></li>
+</ul>
+<p>If you have confirmed this method to work with any other IOS apps please let
+me know and I will include them.</p>
+<h2>Conclusion</h2>
+<p>All in all each method has its own advantages and disadvantages. Ultimately to
+me, method #2 makes the most sense. It allows for tracking, lets you keep the
+same QR code forever, and lets you edit the vCard even after printing. The
+lack of support in popular IOS applications however does make this difficult.
+I can only hope Apple chooses to resolve this situation soon.</p>
+<p>Let me know what methods you choose to go with and how it works out for you.</p>
+  </article>
+    <h2 class="comments">Comments</h2>
+    <article id="disqus_thread">
+    </article>
+    <script type="text/javascript">
+      var disqus_shortname = 'lrvick';
+      var disqus_identifier = 'accessibly_importing_vcards_from_qr_codes';
+      var disqus_title = 'Accessibly Importing vCards From QR Codes';
+      var disqus_url = 'http://lrvick.net/blog/accessibly_importing_vcards_from_qr_codes/';
+      (function() {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+
+      </article>
+      <aside>
+  <div class="contact vcard">
+    <img src="http://gravatar.com/avatar/ce3b7bc97b5adbdc2cae4d231e4ebad8?s=200x200" alt="photo of Lance" class="photo">
+    <a class="url uid fn n noprint" href="http://lrvick.net">
+      <span class="given-name">Lance</span> 
+      <abbr class="additional-name" title="Reagan">R.</abbr> 
+      <span class="family-name">Vick</span>
+    </a>
+    <span class="org"><a class="url" href="http://tawlk.com">Tawlk (Loopa LLC)</a></span>
+    <span class="title">CTO & Lead Engineer</span>
+    <a class="email" href="mailto:lance@lrvick.net">lance@lrvick.net</a>
+    <div class="adr">
+      <a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=2264+Gator+Dr.+apt+%23359+Orlando,++FL&amp;sll=28.573566,-81.312496&amp;sspn=0.006577,0.011362&amp;g=2264+Gator+Dr.+Orlando,+%23359+FL&amp;ie=UTF8&amp;hq=&amp;hnear=2264+Gator+Dr+%23359,+Orlando,+Orange,+Florida+32807&amp;ll=28.573601,-81.312481&amp;spn=0.000822,0.00142&amp;t=h&amp;z=20&amp;iwloc=A">
+        <span class="street-address">2264 Gator Dr #359</span>
+        <span class="locality">Orlando</span>
+        <span class="region">FL</span>
+        <span class="postal-code">32807</span>
+        <span class="country-name">USA</span>
+      </a>
+    </div>
+    <div class="tel">
+      <span class="type">Cell</span>
+      <a class="value" href="callto:14072837596">+1.407.283.7596</a>
+    </div>
+    <hr/>
+    <a rel="me" class="url" href="http://plus.google.com/u/0/109278148620470841006">
+      <img src="/img/googleplus.png" title="Google Plus" alt="Google Plus">
+    </a>
+    <a rel="me" class="url" href="http://www.linkedin.com/in/lrvick">
+      <img src="/img/linkedin.png" title="LinkedIn" alt="LinkedIn">
+    </a>
+    <a rel="me" class="url" href="http://github.com/lrvick">
+      <img src="/img/github.png" title="GitHub" alt="Github">
+    </a>
+    <a rel="me" class="url" href="http://www.facebook.com/people/Lance-Reagan-Vick/600627717">
+      <img src="/img/facebook.png" title="Facebook" alt="Facebook">
+    </a>
+    <a rel="me" class="url" href="http://twitter.com/lrvick">
+      <img src="/img/twitter.png" title="twitter" alt="Twitter">
+    </a>
+    <a rel="me" class="url" href="http://www.last.fm/user/lrvick">
+      <img src="/img/lastfm.png" title="Last.fm" alt="Last.fm">
+    </a>
+    <a rel="me" class="url" href="http://www.youtube.com/lrvick">
+      <img src="/img/youtube.png" title="YouTube" alt="YouTube">
+    </a>
+  </div>
+  <h3 class="odd">Location</h3>
+  <div class="latitude">
+    <div class="wrapper">
+      <iframe src="http://www.google.com/latitude/apps/badge/api?user=9215320111826670805&amp;type=iframe&amp;maptype=roadmap&amp;z=12" width="178px" height="219px"></iframe>
+    </div>
+  </div>
+  <h3 class="even">Github</h3>
+  <div class="github">
+  </div>
+  <h3 class="odd">Twitter</h3>
+  <div class="twitter">
+  </div>
+  <h3 class="even">Lastfm</h3>
+  <div class="lastfm">
+  </div>
+  <h3 class="odd">Youtube</h3>
+  <div class="youtube">
+  </div>
+</aside>
+      <footer>
+      Site generated by <a href="http://github.com/lrvick/rant">rant</a> | All content and code is <a href="http://en.wikipedia.org/wiki/Public_domain">Public Domain</a> unless otherwise specified. Take whatever you like.
+      </footer>
+    </div>
+  </body>
+</html>
