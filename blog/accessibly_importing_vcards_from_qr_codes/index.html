@@ -112,13 +112,13 @@ Decoding application only had a black and white smudge to work with.</p>
 good quality laser printer you might get away with using a full vCard, however
 be sure to test a lot of phones if you try to make sure their cameras can pick
 it up.</p>
-<p>The only way I could get this method to work well on an average printer, was
-to include only the bare essentials in the vCard. Name, phone, email. Anything
-more than that and the QR tends to end up too large.</p>
+<p>The only way I could get this method to work well on an average quality
+printer, was to include only the bare essentials in the vCard. Name, phone,
+email. Anything more than that and the QR tends to end up too large.</p>
 <p>This brings us to the reality, that embedding anything much longer than a URL
-or a very small vCards is probably going to result in a QR code too dense to
+or a very small vCard is probably going to result in a QR code too dense to
 be read clearly by most smart phones, if printed with a lower-end printer, or
-or from any distance.</p>
+from any distance.</p>
 <p>At this point I thought to myself "Ok, so I will just put the vCard file on my
 server and link to it".</p>
 <p>This brings us to the next method.</p>
@@ -127,13 +127,8 @@ server and link to it".</p>
 bug in android phones... they simply download the file and ignore the fact
 that it is a vCard that should be handled by the Contacts app.</p>
 <p>Details on this issue can be found <a href="http://code.google.com/p/android/issues/detail?id=9215&amp;q=vcard&amp;colspec=ID%20Type%20Status%20Owner%20Summary%20Stars">here</a></p>
-<p>After much toying around I found that if you serve the files with just the
-right headers in your web server, you can bypass this issue and Android will see
-the vCard as a vCard and let you import it.</p>
-<p>In order to do this you will need to configure your web server to serve VCF
-files with some special headers.</p>
-<p>Whenever a target vCard file is accessed it must contain the following headers
-for Android to treat is as an importable vCard file:</p>
+<p>After much toying around I found that if you serve your VCF files with the
+following headers Android treat them as importable vCard files:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">Content</span><span class="o">-</span><span class="n">Disposition:</span> <span class="n">attachment</span><span class="p">;</span>
 <span class="n">Content</span><span class="o">-</span><span class="n">Type:</span> <span class="n">text</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">vcard</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span>
