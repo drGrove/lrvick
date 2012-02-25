@@ -128,7 +128,7 @@ bug in android phones... they simply download the file and ignore the fact
 that it is a vCard that should be handled by the Contacts app.</p>
 <p>Details on this issue can be found <a href="http://code.google.com/p/android/issues/detail?id=9215&amp;q=vcard&amp;colspec=ID%20Type%20Status%20Owner%20Summary%20Stars">here</a></p>
 <p>After much toying around I found that if you serve your VCF files with the
-following headers Android treat them as importable vCard files:</p>
+following headers, Android will treat them as importable vCard files:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">Content</span><span class="o">-</span><span class="n">Disposition:</span> <span class="n">attachment</span><span class="p">;</span>
 <span class="n">Content</span><span class="o">-</span><span class="n">Type:</span> <span class="n">text</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">vcard</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span>
