@@ -1,0 +1,12 @@
+BEGIN:VCARD
+N:vick;Lance;R.;;
+ADR;INTL;PARCEL;WORK:;;4545 36th St;Orlando;FL;32811;United States
+ADR;DOM;PARCEL;HOME:;;2264 Gator Dr #359;Orlando;FL;32807;United States
+EMAIL;INTERNET:lance@lrvick.net
+EMAIL;INTERNET:lance@tawlk.com
+ORG:Tawlk
+TEL;CELL:4072837596
+TITLE:Founder / Lead Engineer
+URL;WORK:http://tawlk.com
+URL:http://lrvick.net
+END:VCARD

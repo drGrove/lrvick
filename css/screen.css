@@ -254,6 +254,17 @@ aside .vcard .photo {
 aside .vcard .note {
   display:none;
 }
+aside .qrvcard {
+  text-align:center;
+}
+aside .qrvcard img {
+  width:100%;
+}
+aside .qrvcard a {
+  color:#333;
+  font-weight:700;
+}
+
 article {
   position:relative;
   z-index:1000;
