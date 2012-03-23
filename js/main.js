@@ -3,7 +3,6 @@ $(document).ready(function(){
     $.getJSON('https://github.com/lrvick.json?callback=?',function(data){
         var items = [];
         $.each(data, function(key,val){
-        console.log(key,val)
             if (val.type == 'PushEvent' && val.repository != undefined){
                 items.push('<li><span class="time">'+val.created_at+'</span><span class="action">Pushed to: <a href="'+val.url+'">'+val.repository.name+'</a></span><br/> "'+val.payload.shas[0][2]+'"</li>');
             } else if (val.type == 'FollowEvent'){
