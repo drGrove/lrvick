@@ -100,21 +100,19 @@ just adjust steps accordingly.</p>
 10
 11
 12
-13
-14</pre></div></td><td class="code"><div class="codehilite"><pre>su
+13</pre></div></td><td class="code"><div class="codehilite"><pre>su
 bash
 <span class="nb">cd</span> /data/local/
 mkdir arch
 <span class="nb">cd </span>arch
 wget http://archlinuxarm.org/os/ArchLinuxARM-omap-smp-latest.tar.gz
-tar xzf ArchLinuxARM*.tar.gz
-rm ArchLinuxARM*.tar.gz
-mount -o <span class="nb">bind</span> /dev/ /data/local/arch/dev
-mount -t proc /proc /data/local/arch/proc
-mount -t proc proc /proc
-mount -t sysfs sysfs /sys
+tar xzf Arch*.tar.gz
+rm Arch*.tar.gz
+mount -o <span class="nb">bind</span> /dev dev
+mount -t proc proc proc
+mount -t sysfs sysfs sys
+ln -s /proc/self/fd dev/fd
 <span class="nb">echo</span> <span class="s2">&quot;nameserver 8.8.8.8&quot;</span> &gt;&gt; /data/local/arch/etc/resolv.conf
-ln -s /proc/self/fd /data/local/arch/dev/fd
 </pre></div>
 </td></tr></table>
 
